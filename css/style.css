@@ -1,4 +1,4 @@
-/* Reset dan pengaturan dasar */
+/* Pengaturan dasar */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -23,13 +23,13 @@ body {
 }
 
 .container {
-    width: min(1000px, 92%);
+    width: min(1100px, 92%);
     margin: 0 auto;
 }
 
-/* Header halaman */
+/* Bagian header */
 .header {
-    padding: 48px 0;
+    padding: 55px 0;
     color: var(--white);
     background: linear-gradient(135deg, #102a43, #1769aa);
 }
@@ -50,39 +50,40 @@ body {
 }
 
 .subtitle {
-    max-width: 720px;
+    max-width: 700px;
     color: #e5f2fc;
     font-size: 1.05rem;
 }
 
 /* Pengantar */
 .intro {
-    padding: 32px 0 18px;
+    padding: 35px 0 22px;
 }
 
 .intro h2,
 .assignment h2 {
     margin-bottom: 8px;
     color: var(--navy);
-    font-size: 1.55rem;
+    font-size: 1.6rem;
 }
 
 .intro p {
+    max-width: 800px;
     color: var(--muted);
 }
 
-/* Daftar alat: gambar di kiri, keterangan di kanan */
-.tool-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 8px 0 38px;
+/* Kartu alat */
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    padding: 10px 0 40px;
 }
 
 .tool-card {
-    display: flex;
-    align-items: stretch;
-    min-height: 180px;
+    position: relative;
+    min-height: 245px;
+    padding: 25px;
     overflow: hidden;
     background: var(--white);
     border: 1px solid var(--border);
@@ -92,56 +93,51 @@ body {
 }
 
 .tool-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
     box-shadow: 0 10px 24px rgba(16, 42, 67, 0.12);
-}
-
-.tool-card img {
-    display: block;
-    flex: 0 0 230px;
-    width: 230px;
-    min-height: 180px;
-    object-fit: cover;
-    background: var(--light-blue);
-}
-
-.tool-content {
-    position: relative;
-    flex: 1;
-    padding: 23px 28px;
 }
 
 .tool-number {
     position: absolute;
-    top: 17px;
-    right: 22px;
+    top: 15px;
+    right: 18px;
     color: #bcccdc;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
-.tool-content h3 {
-    padding-right: 45px;
+.tool-icon {
+    display: grid;
+    width: 54px;
+    height: 54px;
+    margin-bottom: 14px;
+    place-items: center;
+    background: var(--light-blue);
+    border-radius: 12px;
+    font-size: 1.8rem;
+}
+
+.tool-card h3 {
+    margin-bottom: 2px;
     color: var(--navy);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
 }
 
 .english {
-    margin: 2px 0 10px;
+    margin-bottom: 10px;
     color: var(--blue);
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: bold;
 }
 
-.tool-content p:last-child {
-    max-width: 650px;
+.tool-card p:last-child {
     color: var(--muted);
-    font-size: 0.96rem;
+    font-size: 0.94rem;
 }
 
 /* Tugas siswa */
 .assignment {
-    margin-bottom: 42px;
+    margin-bottom: 45px;
     padding: 28px 32px;
     background: var(--white);
     border: 1px solid var(--border);
@@ -174,57 +170,24 @@ body {
     font-size: 0.9rem;
 }
 
-/* Tablet */
-@media (max-width: 700px) {
-    .tool-card img {
-        flex-basis: 190px;
-        width: 190px;
-    }
-
-    .tool-content {
-        padding: 20px;
+/* Tampilan tablet dan ponsel */
+@media (max-width: 850px) {
+    .tool-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-/* Ponsel: gambar tetap di kiri dengan ukuran lebih kecil */
-@media (max-width: 520px) {
+@media (max-width: 560px) {
     .header {
-        padding: 38px 0;
+        padding: 40px 0;
+    }
+
+    .tool-grid {
+        grid-template-columns: 1fr;
     }
 
     .tool-card {
-        min-height: 145px;
-    }
-
-    .tool-card img {
-        flex: 0 0 115px;
-        width: 115px;
-        min-height: 145px;
-    }
-
-    .tool-content {
-        padding: 15px 14px;
-    }
-
-    .tool-content h3 {
-        padding-right: 28px;
-        font-size: 1.05rem;
-    }
-
-    .tool-number {
-        top: 12px;
-        right: 12px;
-        font-size: 0.85rem;
-    }
-
-    .english {
-        margin-bottom: 6px;
-        font-size: 0.78rem;
-    }
-
-    .tool-content p:last-child {
-        font-size: 0.85rem;
-        line-height: 1.45;
+        min-height: auto;
     }
 
     .assignment {
