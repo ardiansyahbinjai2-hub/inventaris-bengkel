@@ -1,5 +1,233 @@
-.judul{
-    font-size: larger;
+/* Reset dan pengaturan dasar */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --navy: #102a43;
+    --blue: #1769aa;
+    --light-blue: #eaf4fb;
+    --text: #243b53;
+    --muted: #627d98;
+    --white: #ffffff;
+    --border: #d9e2ec;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    width: min(1000px, 92%);
+    margin: 0 auto;
+}
+
+/* Header halaman */
+.header {
+    padding: 48px 0;
+    color: var(--white);
+    background: linear-gradient(135deg, #102a43, #1769aa);
+}
+
+.eyebrow {
+    margin-bottom: 8px;
+    color: #c9e6ff;
+    font-size: 0.85rem;
     font-weight: bold;
-    color: brown;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.header h1 {
+    margin-bottom: 12px;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+}
+
+.subtitle {
+    max-width: 720px;
+    color: #e5f2fc;
+    font-size: 1.05rem;
+}
+
+/* Pengantar */
+.intro {
+    padding: 32px 0 18px;
+}
+
+.intro h2,
+.assignment h2 {
+    margin-bottom: 8px;
+    color: var(--navy);
+    font-size: 1.55rem;
+}
+
+.intro p {
+    color: var(--muted);
+}
+
+/* Daftar alat: gambar di kiri, keterangan di kanan */
+.tool-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 8px 0 38px;
+}
+
+.tool-card {
+    display: flex;
+    align-items: stretch;
+    min-height: 180px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(16, 42, 67, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(16, 42, 67, 0.12);
+}
+
+.tool-card img {
+    display: block;
+    flex: 0 0 230px;
+    width: 230px;
+    min-height: 180px;
+    object-fit: cover;
+    background: var(--light-blue);
+}
+
+.tool-content {
+    position: relative;
+    flex: 1;
+    padding: 23px 28px;
+}
+
+.tool-number {
+    position: absolute;
+    top: 17px;
+    right: 22px;
+    color: #bcccdc;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.tool-content h3 {
+    padding-right: 45px;
+    color: var(--navy);
+    font-size: 1.25rem;
+}
+
+.english {
+    margin: 2px 0 10px;
+    color: var(--blue);
+    font-size: 0.88rem;
+    font-weight: bold;
+}
+
+.tool-content p:last-child {
+    max-width: 650px;
+    color: var(--muted);
+    font-size: 0.96rem;
+}
+
+/* Tugas siswa */
+.assignment {
+    margin-bottom: 42px;
+    padding: 28px 32px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--blue);
+    border-radius: 12px;
+}
+
+.assignment ol {
+    padding-left: 22px;
+    margin: 15px 0;
+}
+
+.assignment li {
+    margin-bottom: 7px;
+}
+
+.objective {
+    margin-top: 18px;
+    padding: 14px;
+    background: var(--light-blue);
+    border-radius: 8px;
+}
+
+/* Footer */
+.footer {
+    padding: 20px 0;
+    color: #d9e2ec;
+    background: var(--navy);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Tablet */
+@media (max-width: 700px) {
+    .tool-card img {
+        flex-basis: 190px;
+        width: 190px;
+    }
+
+    .tool-content {
+        padding: 20px;
+    }
+}
+
+/* Ponsel: gambar tetap di kiri dengan ukuran lebih kecil */
+@media (max-width: 520px) {
+    .header {
+        padding: 38px 0;
+    }
+
+    .tool-card {
+        min-height: 145px;
+    }
+
+    .tool-card img {
+        flex: 0 0 115px;
+        width: 115px;
+        min-height: 145px;
+    }
+
+    .tool-content {
+        padding: 15px 14px;
+    }
+
+    .tool-content h3 {
+        padding-right: 28px;
+        font-size: 1.05rem;
+    }
+
+    .tool-number {
+        top: 12px;
+        right: 12px;
+        font-size: 0.85rem;
+    }
+
+    .english {
+        margin-bottom: 6px;
+        font-size: 0.78rem;
+    }
+
+    .tool-content p:last-child {
+        font-size: 0.85rem;
+        line-height: 1.45;
+    }
+
+    .assignment {
+        padding: 22px;
+    }
 }
